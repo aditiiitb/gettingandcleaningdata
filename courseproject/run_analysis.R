@@ -12,6 +12,8 @@ mergetwofiles <- function (file1, file2, writeFile)
   close(writecon)
 }
 
+
+
 # Merging the data together
 datadir <- "getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/test/";
 allfiles <- list.files(datadir, include.dirs = FALSE, recursive = TRUE, full.names = TRUE)
@@ -27,3 +29,16 @@ for(i in allfiles)
 file1 <- "getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/features.txt";
 feat <- readLines(file1) ;
 features <- c(feat[grep("mean()",feat)], feat[grep("std()",feat)]);
+mydf <- data.frame(x = features, stringsAsFactors = FALSE)
+reqFeatures <- mydf %>% separate(x, c("relevantRownums" , "Name", "Type", "Axis"))
+reqColumns <- as.numeric(reqFeatures[,1])
+
+# Read in the merged data set as data frame
+ con <- file("getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/merged/X_merged.txt");
+ X_merged <- readLines(con) ;
+ close(con);
+ X_merged <- data.frame(measurements = X_merged, stringsAsFactors = FALSE);
+ X_merged <- read.table(textConnection(X_merged$measurements))
+
+req_merged <- select(X_merged, reqColumns)
+
