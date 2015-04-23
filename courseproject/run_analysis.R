@@ -76,8 +76,13 @@ subjects <- read.table(file, stringsAsFactors = FALSE, nrows = rowsToRead)
 subjects <- subjects[,1]
 
 # Add subjects and activity column to data
+install.packages("dplyr")
 library(dplyr)
 X_merged <- mutate(X_merged, activity = activitylabels, subject = subjects)
 
+# Group by subject and activity for each variable , calculate its mean
 tidydata <- aggregate(x = X_merged[1:86], by = list(Subject = X_merged$subject,Activity = X_merged$activity), FUN = "mean")
+
+# sort by activity, subject
 tidydata <- arrange(tidydata, Subject, Activity)
+
