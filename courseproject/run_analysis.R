@@ -23,15 +23,17 @@ for(i in allfiles)
   file1 <- i
   file2 <- gsub("test", "train", i)
   mergedFile <- gsub("test", "merged", i)
-  #mergetwofiles(file1, file2, mergedFile)
+  mergetwofiles(file1, file2, mergedFile)
 }
 
-
+# This is extracted out here for easy testing purposes. Changing this changes the total number of observations we are reading in. 
+# I observed the number of rows in merged set was 10299 hence hard coding it here if you want to read in the whole data set
 rowsToRead <- 10299
 
 # STEP 2 - Extract data set for mean and std only
 
 # Find the set of mean and std feature column numbers
+# I extract all columns with either mean() or std() in their name, ignoring case
 featuresFile <- "getdata-projectfiles-UCI HAR Dataset/UCI HAR Dataset/features.txt";
 features <- read.table(featuresFile, stringsAsFactors = FALSE);
 reqFeatures <- grep("mean()|std()", features[,2], ignore.case = TRUE)
