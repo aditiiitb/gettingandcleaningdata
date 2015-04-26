@@ -13,5 +13,5 @@ You need the dplyr package for running this file. It will install the dplyr pack
 We were asked to put the mean and std of the variables. I have grepped all variables having mean in their name, irrespective of case. So I get 88 variables per activity per person.
 
 
-The script code already includes all explanation of the code in comments so feel free to read through it.
+The script code already includes all explanation of the code in comments so feel free to read through it. In short, I have followed the steps exactly as given in assignment. I merge the two train and test sets together, extract only the std and mean columns, replace activity numbers with their names, calculate average of all required features, sort and arrange the data into a tidy data. 
 
