@@ -18,6 +18,7 @@ This is the activity the person is doing. The possible values are
 After this follows 86 variables which are listed below. Each of these values are the mean of that variable for that person in that activity. So for example if you are looking at row 1 column 3, it means you are looking at the average value of tBodyAcc-mean()-X for person 1, while laying down.
 
 The columns from 3:88 are :
+
 tBodyAcc-mean()-X
 
 tBodyAcc-mean()-Y
