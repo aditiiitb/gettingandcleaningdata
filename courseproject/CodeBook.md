@@ -19,14 +19,23 @@ After this follows 86 variables which are listed below. Each of these values are
 
 The columns from 3:88 are :
 tBodyAcc-mean()-X
+
 tBodyAcc-mean()-Y
+
 tBodyAcc-mean()-Z
+
 tBodyAcc-std()-X
+
 tBodyAcc-std()-Y
+
 tBodyAcc-std()-Z
+
 tGravityAcc-mean()-X
+
 tGravityAcc-mean()-Y
+
 tGravityAcc-mean()-Z
+
 tGravityAcc-std()-X
 tGravityAcc-std()-Y
 tGravityAcc-std()-Z
